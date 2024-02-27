@@ -2,6 +2,13 @@
 
 
 
+## v0.2.0 (2024-02-27)
+
+### Feature
+
+* feat: add features tranformation functions ([`92179f6`](https://github.com/ScudraServicos/application_model/commit/92179f6399b4f72c53bf5e125c281a49601bb13f))
+
+
 ## v0.1.0 (2024-02-27)
 
 ### Build
