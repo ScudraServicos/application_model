@@ -2,6 +2,8 @@
 
 Generate application score for new customers.
 
+- Documentation: 
+
 ## Installation
 
 ```bash
