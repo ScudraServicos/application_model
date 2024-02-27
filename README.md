@@ -6,6 +6,8 @@ Generate application score for new customers.
 
 ## Installation
 
+PyPI: https://pypi.org/project/application_model/
+
 ```bash
 $ pip install application_model
 ```
