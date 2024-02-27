@@ -70,7 +70,7 @@ jobs:
       - name: Test install from PyPI
         if: steps.release.outputs.released == 'true'
         run: |
-            pip install ume_application_model
+            pip install application_model
 
       - name: Publish package distributions to GitHub Releases
         uses: python-semantic-release/upload-to-gh-release@main
