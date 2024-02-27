@@ -2,6 +2,23 @@
 
 
 
+## v0.1.0 (2024-02-27)
+
+### Build
+
+* build: build documentation ([`b09a7fb`](https://github.com/ScudraServicos/application_model/commit/b09a7fbc5859ca1844acbebb78830553266bff09))
+
+* build: add semantics release lib ([`525caa2`](https://github.com/ScudraServicos/application_model/commit/525caa2809899b47faef0e09879a4eeacaa6bde9))
+
+### Documentation
+
+* docs: fix ([`69580dd`](https://github.com/ScudraServicos/application_model/commit/69580dd00853e161acc684ffdb326b66e69ef018))
+
+### Feature
+
+* feat: add data processor class ([`c2ac0f0`](https://github.com/ScudraServicos/application_model/commit/c2ac0f0f480e1396b4077f5a83c9d806bd82fb28))
+
+
 ## v0.0.1 (2024-02-27)
 
 ### Build
