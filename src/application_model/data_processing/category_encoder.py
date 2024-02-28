@@ -5,9 +5,9 @@ from sklearn.preprocessing import LabelEncoder
 
 
 class CategoryEncoder:
-    """
-    Wrapper of LabelEncoder from sklearn that adds the possibility
-    of passing a proportion threshold or a number max of classes it must
+    """Wrapper of LabelEncoder from sklearn.
+    
+    Adds the possibility of passing a proportion threshold or a number max of classes it must
     encodes the data. The number max of classes sort the values by its frequency and gets the
     first max classes and group the others in a single class.
     """
@@ -44,10 +44,6 @@ class CategoryEncoder:
         self.__value_class_map = None
 
     def fit(self, data) -> None:
-        """
-        This method generates the classes for all possible values in the
-        dataset.
-        """
         if not isinstance(data, pandas.Series):
             data = pandas.Series(data)
 
@@ -67,10 +63,6 @@ class CategoryEncoder:
         self.__build_maps(self.__skencoder.classes_)
 
     def transform(self, data) -> numpy.array:
-        """
-        Given some values, this method returns the class that each value
-        belongs to.
-        """
         if self.__value_class_map is None:
             raise ValueError('Please fit/load the encoder before to transform')
 
@@ -88,17 +80,10 @@ class CategoryEncoder:
         return numpy.array(a)
 
     def fit_transform(self, data) -> numpy.array:
-        """
-        This method make the classes and already returns the mapped values.
-        """
         self.fit(data)
         return self.transform(data)
 
     def inverse_transform(self, data) -> numpy.array:
-        """
-        Given some classes, this method returns the values that each class was
-        mapped for.
-        """
         if self.__class_value_map is None:
             raise ValueError('Please fit/load the encoder before to transform')
 
@@ -117,10 +102,6 @@ class CategoryEncoder:
         return numpy.array(a)
 
     def load(self, class_value_map) -> None:
-        """
-        This method loads the values previously fitted. This is going to be
-        used in online scenario.
-        """
         self.__value_class_map = {}
         self.__class_value_map = {}
 
