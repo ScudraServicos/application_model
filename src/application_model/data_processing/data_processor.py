@@ -25,8 +25,7 @@ class DataProcessor(BaseEstimator):
         
 
     def fit(self, data, categorical_limit=12) -> None:
-        """
-        This method generates the attribute maps according to the data, this maps
+        """This function generates the attribute maps according to the data, this maps
         are used to transform the dataframe.
 
         Parameters
@@ -34,6 +33,7 @@ class DataProcessor(BaseEstimator):
         data : pandas.DataFrame
             This is the data used to generate the maps, the maps will use the information
             in this dataframe to generate the attribute maps
+
         categorical_limits : dict, optional
             if you want to use limits in the categorical data fitting you can pass a dict having
             the column and the limits used to fit the data, these limits are related
@@ -99,8 +99,7 @@ class DataProcessor(BaseEstimator):
                   clip_outliers=True,
                   replace_nan=True,
                   one_hot=True) -> pd.DataFrame:
-        """
-        This method receive a raw dataframe and returns a transformed dataframe.
+        """This function receive a raw dataframe and returns a transformed dataframe.
         It will use the attribute maps previously loaded or fitted.
 
         Parameters
@@ -163,10 +162,8 @@ class DataProcessor(BaseEstimator):
         
         
     def fit_transform(self, data) -> pd.DataFrame:
-        """
-        This method applies the fit method to generate the maps
-        and after the transform method and returns
-        the transformed data.
+        """This funciton applies the fit to generate the maps and after transform 
+        the data and returns the transformed data.
 
         Parameters
         ----------
@@ -184,9 +181,7 @@ class DataProcessor(BaseEstimator):
         
         
     def load_maps(self, numeric_map, categorical_map, bool_map) -> None:
-        """
-        The method to load pre fitted attribute maps
-        If you load the maps you do not need to fit.
+        """Load pre fitted attribute maps. If you load the maps you do not need to fit.
 
         Parameters
         ----------
@@ -196,11 +191,6 @@ class DataProcessor(BaseEstimator):
             the categorical map
         bool_map : dict
             the bool map (obs: this map have the columns and the mode)
-
-        Returns
-        -------
-        None
-
         """
         self.__numeric_map = numeric_map
         self.__categorical_map = categorical_map
@@ -208,8 +198,7 @@ class DataProcessor(BaseEstimator):
         
         
     def get_numeric_mapping(self) -> dict:
-        """
-        Get the numeric map fitted or loaded
+        """Get the numeric map filtered or loaded.
 
         Returns
         -------
@@ -220,8 +209,7 @@ class DataProcessor(BaseEstimator):
         
         
     def get_categorical_mapping(self) -> dict:
-        """
-        Get the categorical map fitted or loaded
+        """Get the categorical map fitted or loaded
 
         Returns
         -------
@@ -232,8 +220,7 @@ class DataProcessor(BaseEstimator):
         
         
     def get_bool_mapping(self) -> dict:
-        """
-        Get the bool map fitted or loaded
+        """Get the bool map fitted or loaded
 
         Returns
         -------
@@ -243,8 +230,9 @@ class DataProcessor(BaseEstimator):
         return self.__bool_map
         
         
-    def __transform_numeric_data(self, data, clip_outliers,
-                                 replace_nan) -> pd.DataFrame:
+    def __transform_numeric_data(self, data, clip_outliers, replace_nan) -> pd.DataFrame:
+        """Norm numeric data and extract metadata.
+        """
         means = []
         stds = []
         for c in self.__numeric_map:
@@ -272,6 +260,8 @@ class DataProcessor(BaseEstimator):
         
         
     def __transform_bool_data(self, data) -> pd.DataFrame:
+        """Transform bool data to int.
+        """
         # binaryzing bool columns
         for c in self.__bool_map.keys():
             data[c].fillna(False, inplace=True)
@@ -281,6 +271,8 @@ class DataProcessor(BaseEstimator):
         
         
     def __transform_categorical_data(self, data, one_hot) -> pd.DataFrame:
+        """Transform categorical data in standadize way like one hot.
+        """
 
         # transforming categorical data
         for c in self.__categorical_map:
@@ -318,6 +310,8 @@ class DataProcessor(BaseEstimator):
         
         
     def __remove_unknown_attributes(self, data) -> pd.DataFrame:
+        """Remove unknown columns generate for unknown values and are not in metadata.
+        """
         # removing unknown attributes
         for c in data.columns:
             if (c not in self.__numeric_map and c not in self.__categorical_map
@@ -328,6 +322,8 @@ class DataProcessor(BaseEstimator):
         
         
     def __insert_missing_attributes(self, data) -> pd.DataFrame:
+        """Insert default missing values in attributes.
+        """
         for c in self.__numeric_map:
             if c not in data.columns:
                 data[c] = float('NaN')
@@ -344,13 +340,11 @@ class DataProcessor(BaseEstimator):
         
         
     def convert_to_bool(self, val):
-        """Tries to convert val to bool
+        """Tries to convert val to bool.
 
-        For most values this will simply apply bool(val).
-
-        For str will check if its a numerical string or 'False', or any
-        variation. If numerical will return as if its a regular numerical value
-        and its boolean value. If str as all string values passed to bool
+        For most values this will simply apply bool(val). For str will check if its a numerical 
+        string or 'False', or any variation. If numerical will return as if its a regular 
+        numerical value and its boolean value. If str as all string values passed to bool
         function will evaluate to True, checks if its a str value that could be
         evaluated to False, as 'false', 'False', 'FALSE'.
 
@@ -361,7 +355,6 @@ class DataProcessor(BaseEstimator):
         Returns
         -------
         out : bool
-
         """
         if isinstance(val, str):
             return val.strip().lower().replace(
@@ -377,10 +370,8 @@ class DataProcessor(BaseEstimator):
         unexpected dtypes, e.g., if fit function was called with column 'a'
         with dtype float and transform function receives said column with dtype
         str the function will break, because it will try to use float
-        operations on str values.
-
-        This function tries to convert any column with dtypes different from
-        their original dtype, used during fitting. If it can't it sets the
+        operations on str values. This function tries to convert any column with dtypes 
+        different from their original dtype, used during fitting. If it can't it sets the
         column to the empty value of the original type:
 
         - bool: False
@@ -397,7 +388,6 @@ class DataProcessor(BaseEstimator):
         Returns
         -------
         out: pd.DataFrame
-
         """
         if self.__original_cols_dtype is None:
             return data
@@ -431,8 +421,7 @@ class DataProcessor(BaseEstimator):
         
         
     def get_metadata(self) -> dict:
-        """
-        Returns expected features and respective dtypes for each one.
+        """Returns expected features and respective dtypes for each one.
         """
         if self.__original_cols_dtype is not None:
             return {
@@ -443,8 +432,7 @@ class DataProcessor(BaseEstimator):
         
         
     def save(self, path='data_processor.pkl'):
-        """
-        Serializes this object to a file.
+        """Serializes this object to a file.
         """
         with open(path, 'wb') as fout:
             pickle.dump(self, fout)

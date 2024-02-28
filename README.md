@@ -2,11 +2,11 @@
 
 Generate application score for new customers.
 
-- Documentation [link](https://scudraservicos.github.io/application_model/)
+- [Documentation](https://scudraservicos.github.io/application_model/)
 
 ## Installation
 
-PyPI package [link](https://pypi.org/project/application_model/)
+[PyPI Package](https://pypi.org/project/application_model/)
 
 ```bash
 $ pip install application_model

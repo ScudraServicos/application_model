@@ -4,9 +4,9 @@ from sklearn.preprocessing import StandardScaler
 
 
 class NumericStandardizer(object):
-    """
-        Wrapper for StandardScaler from sklearn that adds the possibility of passing the
-        pre computed means and stds for the online scenario
+    """Wrapper for StandardScaler from sklearn.
+
+        Adds the possibility of passing the pre computed means and stds for the online scenario.
     """
 
     def __init__(self, means=[], stds=[]):
@@ -26,7 +26,6 @@ class NumericStandardizer(object):
         self.__stds = self.__skscaler.scale_
 
     def transform(self, X) -> numpy.array:
-
         if self.__means is []:
             raise ValueError(
                 "To transform values it is necessary to fit the model first")
@@ -57,7 +56,6 @@ class NumericStandardizer(object):
         return self.transform(X)
 
     def inverse_transform(self, X):
-
         if self.__means is []:
             raise ValueError(
                 "To transform values it is necessary to fit the model first")
