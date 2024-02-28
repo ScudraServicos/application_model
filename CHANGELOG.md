@@ -2,6 +2,35 @@
 
 
 
+## v0.4.0 (2024-02-28)
+
+### Documentation
+
+* docs: documentation refining ([`3b3811e`](https://github.com/ScudraServicos/application_model/commit/3b3811e4113abfdcdf2778bbf0439807b671b827))
+
+* docs: improve documentation ([`e97e653`](https://github.com/ScudraServicos/application_model/commit/e97e653b734f9b3c0409122d0f7cc80314d54878))
+
+* docs: update documentation of featurization functions ([`d2ed47b`](https://github.com/ScudraServicos/application_model/commit/d2ed47b51fc10911a75f0791a44f067107141bba))
+
+### Feature
+
+* feat: update score generation function ([`c0cb4fd`](https://github.com/ScudraServicos/application_model/commit/c0cb4fde6ac980d5aa350e3cd5ef8e092e9978f1))
+
+* feat: update data processor metadata ([`b95606c`](https://github.com/ScudraServicos/application_model/commit/b95606ce073d6505a5df242e2c3d6416e632a885))
+
+### Test
+
+* test: add payload structure test function ([`41c751a`](https://github.com/ScudraServicos/application_model/commit/41c751aab3e680150487cc418634b56fc206e99b))
+
+* test: improve score generation test function ([`79b747e`](https://github.com/ScudraServicos/application_model/commit/79b747e265d3fa7e0d09fe9d7a9e34fc705c3ec7))
+
+### Unknown
+
+* Merge pull request #2 from ScudraServicos/dev
+
+Improvements of tests and documentation ([`f519f0b`](https://github.com/ScudraServicos/application_model/commit/f519f0b7ff64cc66af23a67be5cabd970940ea9c))
+
+
 ## v0.3.0 (2024-02-28)
 
 ### Build
