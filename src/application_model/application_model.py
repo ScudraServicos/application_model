@@ -52,6 +52,10 @@ def generate_application_score(payload):
         raise TypeError(
             'please pass a valide json!'
         )
+    if len(payload.keys()) != 16:
+        raise TypeError(
+            'some attribute is missing! please check payload structure in documention!'
+        )
     df = pd.DataFrame.from_dict([payload])
 
     # transform ume-profession in groups of profession based on regex
@@ -73,16 +77,16 @@ def generate_application_score(payload):
         raise ValueError(
             'ume-zipcode column is missing!'
         )
-    
+
     # load model pickled
     with resources.path("application_model.resources", "model.pkl") as path:
-        print(">>> ", path)
+        #print(">>> ", path)
         with open(path, "rb") as file:
             model = pickle.load(file)
 
     # load data_processor pickle with model metadata
     with resources.path("application_model.resources", "data_processor.pkl") as path:
-        print(">>> ", path)
+        #print(">>> ", path)
         with open(path, "rb") as file:
             dataprocessor = pickle.load(file)
 

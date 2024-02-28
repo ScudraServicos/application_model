@@ -64,9 +64,9 @@ def generate_occupation_group(professions, column_name):
     Parameters
     ----------
     professions : pd.Series
-        Input profession column of a dataframe.
+        Dataframe profession column.
     column_name : str
-        Name of the column.
+        Profession column name.
 
     Returns
     -------
@@ -89,18 +89,18 @@ def generate_occupation_group(professions, column_name):
 
 def encode_zip_code(df):
     """Transform zipcode column.
-
-    OBS: the dataframe must be only with zipcode attribute
+    
+    OBS: the dataframe must be only with zipcode column
 
     Parameters
     ----------
     df : pd.DataFrame
-        Dataframe with zipcode attribute
+        Dataframe with zipcode column
 
     Returns
     -------
     pd.DataFrame
-        Dataframe with the new zip code columns.
+        Dataframe with the new transformed zipcodes columns.
     """
     def slice_zip(cep, pos0, pos1):
         try:
