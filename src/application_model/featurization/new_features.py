@@ -59,8 +59,19 @@ profission_regexs = [
 
 
 def generate_occupation_group(professions, column_name):
-    """
-        profession grouping based on regex
+    """Group professions based on regex
+
+    Parameters
+    ----------
+    professions : pd.Series
+        Dataframe profession column.
+    column_name : str
+        Profession column name.
+
+    Returns
+    -------
+    pd.DataFrame
+        Dataframe with the new group profession column.
     """
     occupation_map = {column_name:[], column_name+"_group":[]}
     
@@ -77,8 +88,19 @@ def generate_occupation_group(professions, column_name):
 
 
 def encode_zip_code(df):
-    """
-        pass the dataframe only with zipcode attribute
+    """Transform zipcode column.
+    
+    OBS: the dataframe must be only with zipcode column
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        Dataframe with zipcode column
+
+    Returns
+    -------
+    pd.DataFrame
+        Dataframe with the new transformed zipcodes columns.
     """
     def slice_zip(cep, pos0, pos1):
         try:
