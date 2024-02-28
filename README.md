@@ -12,11 +12,12 @@ Generate application score for new customers.
 $ pip install application_model
 ```
 
-## Usage
+## How to use
 
 `application_model` can be used to generate application score as follows:
 
 ```python
+import json
 from application_model.application_model import generate_application_score
 
 payload = {
@@ -42,14 +43,41 @@ payload_json = json.loads(payload)
 score = generate_application_score(payload_json)
 ```
 
+## Data source
 
-## Contributing
+Origin of Ume's attributes
 
-Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
+```python
+{
+    'ume-profession': 'modelo de profissao da ume coletada no application',
+    'ume-zipcode': 'zipcode no formato numerico',
+    'ume-age_on_application': 'idade calculada com base na data do application',
+    'ume-segment': 'coluna name extraida da tabela prd-ume-data.prd_datastore_public.retailer_categories',
+    'ume-retailer': 'coluna name extraida da tabela prd-ume-data.prd_datastore_public.retailers',
+    'ume-city': 'nome completo da cidade em caixa alta (MANAUS)',
+    'ume-state': 'nome completo do estado em caixa alta (AMAZONAS, PARÁ, RORAIMA, ACRE, RONDÔNIA, BAHIA)',
+}
+```
+
+Origin of Bvs's attributes
+
+```python
+{
+    'bvsIncome-CLASSRENDAV2': 'CLASSRENDAV2',
+    'bvsIncome-RendaPresumida': 'RNDRPRPNMMESPFLGBREGV2',
+    'bvsP5-Score': 'SCRCRDPNM06MPFLGBCLFALLV5',
+    'bvsSubP5-Fintechs': 'SCRCRDPNM06MPFLGBCLFBCDV2',
+    'bvsSubP5-CartaoCredito': 'SCRCRDPNMCCRPFLGBCLFBVSV3',
+    'bvsSubP5-CreditoPessoal': 'SCRCRDPNMCRPPFLGBCLFBVSV3',
+    'bvsSubP5-VAR_MoveisEletrodomesticos': 'SCRCRDPNMVARPFLGBCLFBVSV3',
+    'bvsSubP5-VAR_VestuarioAcessorios': 'SCRCRDPNMVARPFLGBCLFBVSV2',
+    'bvsSubP5-FinancialmentoVeiculos': 'SCRCRDPNMVEIPFLGBCLFBVSV3',
+}
+```
 
 ## License
 
-`application_model` was created by Wesllen Sousa Lima. It is licensed under the terms of the Proprietary license.
+`application_model` was created by Wesllen Sousa Lima in Ume corporation. It is licensed under the terms of the Proprietary license.
 
 ## Credits
 
