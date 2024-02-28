@@ -2,6 +2,29 @@
 
 
 
+## v0.3.0 (2024-02-28)
+
+### Build
+
+* build: update sklearn lib for a compatible version ([`0fd2dc2`](https://github.com/ScudraServicos/application_model/commit/0fd2dc205224810a3fe0903b83f586bb3925c20a))
+
+* build: add sphinx workflow to generate docs in github pages ([`016317f`](https://github.com/ScudraServicos/application_model/commit/016317fc9f5b8939ea45a36456e4df8d44136661))
+
+### Documentation
+
+* docs: update readme ([`451ff66`](https://github.com/ScudraServicos/application_model/commit/451ff6662e18943a4d670553782a219909a394e7))
+
+### Feature
+
+* feat: add model and data processor resources ([`6d82ce0`](https://github.com/ScudraServicos/application_model/commit/6d82ce0eacc0b79117da0fa8ec13bf3df7909bf0))
+
+### Unknown
+
+* Merge pull request #1 from ScudraServicos/dev
+
+Model Resources ([`11aa10d`](https://github.com/ScudraServicos/application_model/commit/11aa10d2860e7faa3232ed2d28cfb20390676f42))
+
+
 ## v0.2.0 (2024-02-27)
 
 ### Feature
