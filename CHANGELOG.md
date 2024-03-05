@@ -2,6 +2,25 @@
 
 
 
+## v0.5.0 (2024-03-05)
+
+### Documentation
+
+* docs: readme was improved ([`d00eff0`](https://github.com/ScudraServicos/application_model/commit/d00eff008bf62a152aef36b4446ea95653182bae))
+
+* docs: documentation was improved ([`230d9be`](https://github.com/ScudraServicos/application_model/commit/230d9be32e400133fbea60e070746da546e2cc12))
+
+### Feature
+
+* feat: added new version of application model without city attribute ([`02bc257`](https://github.com/ScudraServicos/application_model/commit/02bc2572b73a159de28e50c3e0fa58187020c3d2))
+
+### Unknown
+
+* Merge pull request #3 from ScudraServicos/dev
+
+New version ([`9906614`](https://github.com/ScudraServicos/application_model/commit/9906614d5f06790d8e1fec4b03d7d5febc050976))
+
+
 ## v0.4.0 (2024-02-28)
 
 ### Documentation
