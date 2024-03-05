@@ -32,7 +32,6 @@ def generate_application_score(payload):
             "ume-age_on_application":63.0,
             "ume-segment":"Móveis",
             "ume-retailer":"apa-moveis",
-            "ume-city":"MANAUS",
             "ume-state":"AMAZONAS",
             "bvsIncome-CLASSRENDAV2":6.0,
             "bvsIncome-RendaPresumida":1700.0,
@@ -52,7 +51,7 @@ def generate_application_score(payload):
         raise TypeError(
             'please pass a valide json!'
         )
-    if len(payload.keys()) != 16:
+    if len(payload.keys()) != 15:
         raise TypeError(
             'some attribute is missing! please check payload structure in documention!'
         )
