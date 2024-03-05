@@ -40,7 +40,7 @@ payload = """
     }
 """
 
-# the payload need to be casted to json format 
+# the payload needs to be casted to json format 
 payload_json = json.loads(payload)
 
 # get the score from the payload
@@ -58,7 +58,7 @@ Origin of Ume's attributes
 5. **ume-retailer**: Data extracted from column `name` in table `tabela prd-ume-data.prd_datastore_public.retailers`.
 6. **ume-state**: Full name in upper case (e.g. PARÁ).
 
-The Bvs's attributes are extract from BVS Api. Bellow are the instructions that map the payload names to real names in BVS API.
+The Bvs's attributes are extracted from BVS Api. Bellow are the instructions that map the payload names to real names in BVS API.
 
 1. **bvsIncome-CLASSRENDAV2**: `CLASSRENDAV2`
 2. **bvsIncome-RendaPresumida**: `RNDRPRPNMMESPFLGBREGV2`
