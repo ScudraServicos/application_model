@@ -9,6 +9,7 @@ from importlib import resources
 from application_model.featurization.new_features import (
     generate_occupation_group, encode_zip_code
 )
+from application_model.utils.constants import PAYLOAD_SCHEMA
 
 
 def generate_application_score(payload):
@@ -16,7 +17,7 @@ def generate_application_score(payload):
 
     Parameters
     ----------
-    payload : dict
+    payload : json
         Input data in json format.
 
     Returns
@@ -46,15 +47,18 @@ def generate_application_score(payload):
     >>> score = generate_application_score(json)
     """
 
-    #json_to_dict = eval(payload)    
     if not isinstance(payload, dict):
         raise TypeError(
             'please pass a valide json!'
         )
     if len(payload.keys()) != 15:
         raise TypeError(
-            'some attribute is missing! please check payload structure in documention!'
+            'Payload is with number of attributes unexpected! please check the payload schema in documention!'
         )
+    #if list(payload.keys()) != PAYLOAD_SCHEMA:
+    #    raise TypeError(
+    #        'Unexpected schema! please check the payload schema in documention!'
+    #    )
     df = pd.DataFrame.from_dict([payload])
 
     # transform ume-profession in groups of profession based on regex
@@ -79,13 +83,11 @@ def generate_application_score(payload):
 
     # load model pickled
     with resources.path("application_model.resources", "model.pkl") as path:
-        #print(">>> ", path)
         with open(path, "rb") as file:
             model = pickle.load(file)
 
     # load data_processor pickle with model metadata
     with resources.path("application_model.resources", "data_processor.pkl") as path:
-        #print(">>> ", path)
         with open(path, "rb") as file:
             dataprocessor = pickle.load(file)
 
