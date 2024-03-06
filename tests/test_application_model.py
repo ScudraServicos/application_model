@@ -4,6 +4,7 @@ import pytest
 from importlib import resources
 
 from application_model.application_model import generate_application_score
+from application_model.utils.constants import PAYLOAD_SCHEMA
 
 
 @pytest.fixture
@@ -17,12 +18,7 @@ def payload():
 
 @pytest.fixture
 def expected_keys():
-    return [
-        'ume-profession', 'ume-zipcode', 'ume-age_on_application', 'ume-segment', 'ume-retailer', 'ume-state', 
-        'bvsIncome-CLASSRENDAV2', 'bvsIncome-RendaPresumida', 'bvsP5-Score', 'bvsSubP5-Fintechs', 
-        'bvsSubP5-CartaoCredito', 'bvsSubP5-CreditoPessoal', 'bvsSubP5-VAR_MoveisEletrodomesticos', 
-        'bvsSubP5-VAR_VestuarioAcessorios', 'bvsSubP5-FinancialmentoVeiculos'
-    ]
+    return PAYLOAD_SCHEMA
 
 @pytest.fixture
 def expected_score():
