@@ -2,6 +2,23 @@
 
 
 
+## v0.6.0 (2024-03-06)
+
+### Documentation
+
+* docs: add training info to readme ([`67dfe8b`](https://github.com/ScudraServicos/application_model/commit/67dfe8bcce1ee14392c66df2c661c65ea04d30ec))
+
+### Feature
+
+* feat: add schema payload schema ([`7005c1a`](https://github.com/ScudraServicos/application_model/commit/7005c1ab36bb5d8423f7d8032d7a0375bae5be79))
+
+### Unknown
+
+* Merge pull request #4 from ScudraServicos/dev
+
+Payload Schema ([`4c67fb9`](https://github.com/ScudraServicos/application_model/commit/4c67fb9a283b5b60fa98a4b66a0415c213892532))
+
+
 ## v0.5.0 (2024-03-05)
 
 ### Documentation
