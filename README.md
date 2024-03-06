@@ -2,7 +2,12 @@
 
 `application_model` package generate application score for new customers.
 
-- [Documentation](https://scudraservicos.github.io/application_model/)
+Training details:
+1. **Cohorts**: from 2022-01 to 2023-04
+2. **Target**: over60mob6
+3. **Features set**: Ume, Bvs-Income, Bvs-P5 and Bvs-P5-Subscores
+
+More details in [Documentation](https://scudraservicos.github.io/application_model/)
 
 ## Installation
 
@@ -58,7 +63,7 @@ Origin of Ume's attributes
 5. **ume-retailer**: Data extracted from column `name` in table `tabela prd-ume-data.prd_datastore_public.retailers`.
 6. **ume-state**: Full name in upper case (e.g. PARÁ).
 
-The Bvs's attributes are extracted from BVS Api. Bellow are the instructions that map the payload names to real names in BVS API.
+The Bvs's attributes are extracted from BVS API. Bellow are the instructions that map the payload names to real names.
 
 1. **bvsIncome-CLASSRENDAV2**: `CLASSRENDAV2`
 2. **bvsIncome-RendaPresumida**: `RNDRPRPNMMESPFLGBREGV2`
