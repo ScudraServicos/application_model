@@ -55,13 +55,13 @@ def generate_application_score(payload):
         raise TypeError(
             'Payload is with number of attributes unexpected! please check the payload schema in documention!'
         )
-    #if list(payload.keys()) != PAYLOAD_SCHEMA:
-    #    raise TypeError(
-    #        'Unexpected schema! please check the payload schema in documention!'
-    #    )
+    if list(payload.keys()) != PAYLOAD_SCHEMA:
+        raise TypeError(
+            'Unexpected schema! please check the payload schema in documention!'
+        )
     df = pd.DataFrame.from_dict([payload])
 
-    # transform ume-profession in groups of profession based on regex
+    # featurization: transform ume-profession in groups of profession based on regex
     if "ume-profession" in df.columns:
         df_professions = generate_occupation_group(df["ume-profession"].unique(), "ume-profession")
         df = pd.merge(df, df_professions, on="ume-profession", how="left")
@@ -71,7 +71,7 @@ def generate_application_score(payload):
             'ume-profession column is missing!'
         )
     
-    # encode zip code
+    # featurization: encode zip code
     if "ume-zipcode" in df.columns:
         df_zipcodes = encode_zip_code(df[["ume-zipcode"]])
         df = pd.concat([df, df_zipcodes], axis=1)
