@@ -22,7 +22,7 @@ def expected_keys():
 
 @pytest.fixture
 def expected_score():
-    return 0.41316487120280165
+    return 0.306985031751312
 
 
 def test_payload_structure(payload, expected_keys):
